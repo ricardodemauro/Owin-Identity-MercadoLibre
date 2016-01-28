@@ -52,7 +52,7 @@ namespace CARD10.Owin.Security.MercadoLibre
 
         /// <summary>
         /// Gets or sets the a pinned certificate validator to use to validate the endpoints used
-        /// in back channel communications belong to Facebook.
+        /// in back channel communications belong to MercadoLibre.
         /// </summary>
         /// <value>
         /// The pinned certificate validator.
