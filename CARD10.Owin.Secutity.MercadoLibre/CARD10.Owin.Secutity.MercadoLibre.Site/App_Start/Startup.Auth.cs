@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CARD10.Owin.Security.MercadoLibre;
+using CARD10.Owin.Secutity.MercadoLibre.Site.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using CARD10.Owin.Secutity.MercadoLibre.Site.Models;
+using System;
 
 namespace CARD10.Owin.Secutity.MercadoLibre.Site
 {
@@ -34,7 +35,7 @@ namespace CARD10.Owin.Secutity.MercadoLibre.Site
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -63,6 +64,10 @@ namespace CARD10.Owin.Secutity.MercadoLibre.Site
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            //must use https with maximum of 4 digits port (visual studio automatic generate 5 digits port
+            //mercado libre accept maximum of 4 digits port in origin
+            app.UseMercadoLibreAuthentication("YOUR-APP-ID-HERE", "YOUR-APP-SECRET-HERE");
         }
     }
 }

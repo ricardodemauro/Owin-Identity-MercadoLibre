@@ -261,6 +261,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CARD10.Owin.Security.MercadoLibre\CARD10.Owin.Security.MercadoLibre.csproj">
+      <Project>{8e0bede3-cead-4d84-aa1a-c535c9b4bdc4}</Project>
+      <Name>CARD10.Owin.Security.MercadoLibre</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
