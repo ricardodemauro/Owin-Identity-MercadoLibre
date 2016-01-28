@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CARD10.Owin.Secutity.MercadoLibre.Site", "CARD10.Owin.Secutity.MercadoLibre.Site\CARD10.Owin.Secutity.MercadoLibre.Site.csproj", "{52ED1703-0D97-4270-89B1-2F05AF13893C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CARD10.Owin.Security.MercadoLibre", "CARD10.Owin.Security.MercadoLibre\CARD10.Owin.Security.MercadoLibre.csproj", "{8E0BEDE3-CEAD-4D84-AA1A-C535C9B4BDC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52ED1703-0D97-4270-89B1-2F05AF13893C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52ED1703-0D97-4270-89B1-2F05AF13893C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52ED1703-0D97-4270-89B1-2F05AF13893C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52ED1703-0D97-4270-89B1-2F05AF13893C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E0BEDE3-CEAD-4D84-AA1A-C535C9B4BDC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0BEDE3-CEAD-4D84-AA1A-C535C9B4BDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0BEDE3-CEAD-4D84-AA1A-C535C9B4BDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0BEDE3-CEAD-4D84-AA1A-C535C9B4BDC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
