@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CARD10.Owin.Secutity.MercadoLibre.Site", "CARD10.Owin.Secutity.MercadoLibre.Site\CARD10.Owin.Secutity.MercadoLibre.Site.csproj", "{52ED1703-0D97-4270-89B1-2F05AF13893C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CARD10.Owin.Security.MercadoLibre", "CARD10.Owin.Security.MercadoLibre\CARD10.Owin.Security.MercadoLibre.csproj", "{8E0BEDE3-CEAD-4D84-AA1A-C535C9B4BDC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{69250940-81B0-4A4A-BCD6-EAD22CE58C39}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

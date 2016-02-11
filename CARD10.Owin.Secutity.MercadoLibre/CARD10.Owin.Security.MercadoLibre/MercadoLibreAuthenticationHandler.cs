@@ -17,6 +17,8 @@ namespace CARD10.Owin.Security.MercadoLibre
     {
         private const string apiUrl = "https://api.mercadolibre.com";
 
+        private const string AUTHORIZATION_URI = @"http://auth.mercadolivre.com.br/authorization?response_type=code&client_id={0}&redirect_uri={1}";
+
         private const string XmlSchemaString = "http://www.w3.org/2001/XMLSchema#string";
         private const string TokenEndpoint = "/oauth/token?grant_type=authorization_code&client_id={0}&client_secret={1}&code={2}&redirect_uri={3}";
 
@@ -58,8 +60,7 @@ namespace CARD10.Owin.Security.MercadoLibre
                 {
                     code = values[0];
                 }
-
-                if (code == null)
+                else
                 {
                     // Null if the remote server returns an error.
                     return new AuthenticationTicket(null, properties);
@@ -70,6 +71,7 @@ namespace CARD10.Owin.Security.MercadoLibre
                 string redirectUri = BuildReturnTo(state);
 
                 string tokenPostUri = string.Concat(apiUrl, TokenEndpoint);
+
                 Uri postUri = new Uri(string.Format(tokenPostUri,
                     Uri.EscapeDataString(Options.AppId),
                     Uri.EscapeDataString(Options.AppSecret),
@@ -92,6 +94,7 @@ namespace CARD10.Owin.Security.MercadoLibre
                     Options.AuthenticationType,
                     ClaimsIdentity.DefaultNameClaimType,
                     ClaimsIdentity.DefaultRoleClaimType);
+
                 if (!string.IsNullOrEmpty(context.Id))
                 {
                     context.Identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, context.Id, XmlSchemaString, Options.AuthenticationType));
@@ -143,7 +146,7 @@ namespace CARD10.Owin.Security.MercadoLibre
                     properties.RedirectUri = currentUri;
                 }
 
-                string authorizationEndpoint = string.Format("http://auth.mercadolivre.com.br/authorization?response_type=code&client_id={0}&redirect_uri={1}",
+                string authorizationEndpoint = string.Format(AUTHORIZATION_URI,
                     Uri.EscapeDataString(Options.AppId),
                     Uri.EscapeDataString(redirectUri));
 
@@ -176,13 +179,14 @@ namespace CARD10.Owin.Security.MercadoLibre
                 }
 
                 var context = new MercadoLibreReturnEndpointContext(Context, ticket);
+
                 context.SignInAsAuthenticationType = Options.SignInAsAuthenticationType;
+
                 context.RedirectUri = ticket.Properties.RedirectUri;
 
                 await Options.Provider.ReturnEndpoint(context);
 
-                if (context.SignInAsAuthenticationType != null &&
-                    context.Identity != null)
+                if (context.SignInAsAuthenticationType != null && context.Identity != null)
                 {
                     ClaimsIdentity grantIdentity = context.Identity;
                     if (!string.Equals(grantIdentity.AuthenticationType, context.SignInAsAuthenticationType, StringComparison.Ordinal))
